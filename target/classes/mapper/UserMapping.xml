@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper的命名空间即对应接口的全类路径名-->
+<mapper namespace="com.dao.UserDao">
+
+    <!--javabean对象和数据库表映射-->
+    <resultMap id="BaseResultMap" type="com.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userName" jdbcType="VARCHAR" property="username" />
+        <result column="passWord" jdbcType="VARCHAR" property="password" />
+        <result column="realName" jdbcType="VARCHAR" property="realname" />
+    </resultMap>
+
+    <select id="queryById" resultType="com.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>
